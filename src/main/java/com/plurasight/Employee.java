@@ -1,33 +1,35 @@
 package com.plurasight;
-import java.io.FileReader;
-import java.io.BufferedReader;
-import java.io.IOException;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        FileReader file = new FileReader("src/main/resources/employees.csv");
-        BufferedReader bufReader = new BufferedReader(file);
-        Employee employeeTemp;
-        String employessInfo;
+public class Employee {
+    private int employeeId;
+    private String name;
+    private double hoursWork;
+    private double payRate;
 
+    Employee(int id, String name, double hoursWork, double payRate){
+        this.employeeId = id;
+        this.name = name;
+        this.hoursWork = hoursWork;
+        this.payRate = payRate;
+    }
 
-        while((employessInfo = bufReader.readLine()) != null){
-            String[] array;
-            employessInfo = bufReader.readLine();
-            array = employessInfo.split("\\|");
+    public int getEmployeeId(){
+        return employeeId;
+    }
 
-            int id = Integer.parseInt(array[0]);
-            String name = array[1];
-            double hoursWork = Double.parseDouble(array[2]);
-            double payRate = Double.parseDouble(array[3]);
-            employeeTemp = new Employee(id,name,hoursWork,payRate);
+    public String getName() {
+        return name;
+    }
 
-            System.out.printf("ID:%d, Name: %s, GrossPay:%f.2\n",id,name,employeeTemp.getGrossPasy());
-            
+    public double getHoursWork() {
+        return hoursWork;
+    }
 
+    public double getPayRate() {
+        return payRate;
+    }
 
-        }
-        bufReader.close();
-
+    public double getGrossPasy(){
+        return this.payRate * this.hoursWork;
     }
 }
