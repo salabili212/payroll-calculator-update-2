@@ -47,7 +47,7 @@ public class Main {
                     }catch (Exception e){
                         System.out.println("Can not read from or write to a file Line 38\n error type \n"+e);
                     }
-                }
+                };
                 bufReader.close();
                 writerbuffered.close();
 

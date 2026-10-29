@@ -23,7 +23,7 @@ public class Employee {
 
     public double getHoursWork() {
         return hoursWork;
-    }
+    };
 
     public double getPayRate() {
         return payRate;
